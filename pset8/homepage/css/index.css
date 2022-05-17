@@ -1,0 +1,12 @@
+.header_background {
+  background-image: url("../images/background_index.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.header_color_white {
+  color: white;
+  text-shadow: 1px 1px 1px #636161;
+}

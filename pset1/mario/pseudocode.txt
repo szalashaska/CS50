@@ -1,0 +1,2 @@
+1. Wpisz wysokosc
+2. Zrob piramide

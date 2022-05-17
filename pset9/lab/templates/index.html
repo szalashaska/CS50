@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="section">
+
+        <h2>Add a Birthday</h2>
+        <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+        <form action="/" method="post">
+            <input name="name" type="text" placeholder="Name" autocomplete="off">
+            <input name="month" type="number" placeholder="Month" autocomplete="off" min="1" max="12">
+            <input name="day" type="number" placeholder="Day" autocomplete="off" min="1" max="31">
+            <input type="submit" value="Add Birthday">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+
+    <div class="section">
+
+        <h2>All Birthdays</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Birthday MM/DD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for person in birthdays %}
+                    <tr>
+                        <td>{{ person.name }}</td>
+                        <td>{{ person.month }} / {{ person.day }}</td>
+                        <td>
+                            <form action="/delete" method="post">
+                                <input name="delete" type="hidden" value="{{ person.id }}">
+                                <input type="submit" value=" X ">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

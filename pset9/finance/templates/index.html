@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="container p-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>TOTAL</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td> {{ stock.stock_name }} </td>
+                <td> {{ stock.long_name }} </td>
+                <td> {{ stock.price | usd }} </td>
+                <td> {{ stock.quantity }} </td>
+                <td> {{ (stock.price * stock.quantity) | usd }} </td>
+                <td><button id="{{ stock.stock_name }}" type="button" class="btn btn-success" onclick="buy_sell(event)">Buy</td>
+                <td><button id="{{ stock.stock_name }}" type="button" class="btn btn-danger" onclick="buy_sell(event)">Sell</td>
+
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td colspan="3"></td>
+                <td> {{ cash | usd }} </td>
+                <td colspan="2"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td> Summary </td>
+                <td> {{ total | usd }} </td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+
+    <div id="conteiner" class="conteiner form-group" style="display:none">
+        <p id="paragraph"></p>
+        <form id="action_form" method="post">
+            <input autocomplete="off" class="form-control" name="shares" placeholder="Shares" type="number" min="1" step="1" required autofocus>
+            <input id="hidden_symbol" type="hidden" name="symbol" value="">
+            <input id="button_value" type="submit" class="btn" value="">
+        </form>
+        <br>
+        <button id="close" class="btn btn-danger">Close</button>
+    </div>
+
+    <script>
+        function buy_sell(event) {
+            let button = event.srcElement;
+            let symbol = button.id;
+
+            let conteiner = document.querySelector("#conteiner");
+            let action = document.querySelector("#action_form");
+            let button_value = document.querySelector("#button_value");
+            let paragraph_name = document.querySelector("#paragraph");
+            let hidden_form = document.querySelector("#hidden_symbol");
+            let close = document.querySelector("#close");
+
+            conteiner.style.display = "block";
+
+            if (button.innerHTML == "Sell") {
+                action.action = "/sell";
+                button_value.classList.remove("btn-outline-success");
+                button_value.classList.add("btn-outline-danger");
+            }
+            else if (button.innerHTML == "Buy") {
+                action.action = "/buy";
+                button_value.classList.remove("btn-outline-danger");
+                button_value.classList.add("btn-outline-success");
+            }
+
+            button_value.value = button.innerHTML;
+            paragraph_name.innerHTML = symbol;
+            hidden_form.value = symbol;
+
+            close.onclick = function () {
+                conteiner.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}

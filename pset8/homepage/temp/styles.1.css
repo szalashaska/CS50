@@ -1,0 +1,54 @@
+.freeze_header {
+  position: fixed;
+  top: 0;
+  width: 99%;
+}
+
+header {
+  height: 90px;
+  width: 100%;
+  background-color: Ivory;
+  display: block;
+}
+
+.my_name {
+  color: Red;
+  text-align: right;
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+
+.my_bar {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+
+
+aside {
+  border: solid blue;
+  margin-left: 10px;
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+}
+
+article {
+  border: solid green;
+  box-sizing: border-box;
+  float: left;
+  width: 70%;
+}
+
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content {
+  font-family: Helvetica;
+  padding: 30px;
+  text-align: center;
+}

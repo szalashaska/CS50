@@ -1,0 +1,18 @@
+table {
+  font-size: 12px;
+  border-collapse: collapse;
+  width: 90%;
+  user-select: none;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+tr:hover {
+  background-color: #F6EFEE;
+}

@@ -1,0 +1,54 @@
+.letters_navbar {
+  font-family: verdana, serif;
+  font-size: 15px;
+  color: #ffffdd;
+  margin: 10px;
+  user-select: none;
+}
+
+.letters {
+  font-family: verdana, serif;
+  font-size: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+  color: #ffffdd;
+  margin: 10px;
+}
+
+a.navigation:link, a.navigation:visited {
+  background-color: #919199;
+  color: white;
+  padding: 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.navigation:hover, a.navigation:active {
+  background-color: #4b4b7d;
+}
+
+footer {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  text-align: right;
+  color: #ffffdd;
+  margin: 10px;
+}
+
+body {
+  background-color: #434345;
+}
+
+hr {
+  border-top: 1px solid white;
+}
+
+a:link, a:visited {
+  color: #ffffdd;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: #e8e8e3;
+}

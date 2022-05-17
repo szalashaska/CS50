@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: It is rather slow with random numbers, but very quick with sorted ones. It takes the longest time with reverse numbers, while it is the longest(?) possible array for bubble sort(?).
+
+sort2 uses: Merge sort
+
+How do you know?: It is the quickest with randoms and takes relatively the same amount of time with the sorted and reversed.
+
+sort3 uses: Selection sort
+
+How do you know?: It is not very fast with random, take fairy long time with sorted and with reversed it seems to take half as much time, while after the half of array, other half is already sorted (if you use sorting on reversed numbers).
